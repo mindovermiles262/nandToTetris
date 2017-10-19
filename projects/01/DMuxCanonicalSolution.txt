@@ -1,0 +1,15 @@
+in sel =>  a  b
+0   0  =>  0  0
+0   1  =>  0  0
+1   0  =>  1  0  
+1   1  =>  0  1
+              ^=> Same table results as AND truth table
+           ^=> Same table results as xAND(NOT(y))
+
+in AND(sel) = b         // Solve for 'b'
+in AND NOT(sel) = a     // Solve for 'a'
+
+// HDL Code
+Not(sel) = nsel
+And(in, nsel) = a     // output
+And(in, sel) = b      // output

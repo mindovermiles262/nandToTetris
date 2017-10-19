@@ -1,3 +1,4 @@
+// Find where output is '1'
 a  b sel 
 1  0  0  =>  a 'b 's OR
 1  1  0  =>  a  b 's OR
