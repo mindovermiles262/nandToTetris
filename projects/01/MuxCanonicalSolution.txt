@@ -1,0 +1,23 @@
+a  b sel 
+1  0  0  =>  a 'b 's OR
+1  1  0  =>  a  b 's OR
+0  1  1  => 'a  b  s OR
+1  1  1  =>  a  b  s
+
+// Canonical Representation. Capital letters = NOT(x)
+aBS + abS + Abs + abs           // Copy From Above
+(aBS + abS) + (Abs + abs)       // Group into Left and Right
+(aS(bB)) + (bs(Aa))             // pull out 'aS' from left, pull out 'bs' from right
+(aS(1)) + (bs(1))               // aA=1 as does bB=1
+(aS) + (bs)                     // Anything times 1 is itself
+aS + bs
+aNot(s) + bs                        // Simplify
+AND(a, NOT(s)) + AND(b, s)          // Separate 'bs' into components, 'bs' => AND(b, s)
+OR( AND(a, NOT(s)) , AND(b, s))     // pull out '+' => OR 
+
+
+// HDL Code
+NOT(s) = nots
+AND(a, nots) = and1
+AND(b, s) = and2
+OR(and1, and2) = out
